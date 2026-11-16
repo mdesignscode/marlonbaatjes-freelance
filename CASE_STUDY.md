@@ -20,7 +20,19 @@ and served by Vercel. No database, no server code, no cookies.
 - The taste skill's inspector reports 0 failures at 1440, 768 and 390 pixels.
 - No sideways scroll at 375 pixels on any page (browser test).
 
-Lighthouse scores are recorded here after the first deploy.
+**Lighthouse mobile, 2026-11-16, on https://marlonbaatjes-freelance.vercel.app.**
+Three runs from a laptop that was busy with other work:
+
+| Run | Performance | Accessibility | Best practices | SEO |
+| --- | ----------- | ------------- | -------------- | --- |
+| 1   | 46          | 96            | 100            | 100 |
+| 2   | 82          | 100           | 100            | 100 |
+| 3   | 96          | 100           | 100            | 100 |
+
+Run 1 was before a contrast fix, which took accessibility to 100. Layout
+shift was 0 in every run. The performance score moved with how busy the
+laptop was (blocking time ranged from 210 ms to 7.5 s on the same page), so it
+is not settled. Measure it again on a quiet machine before quoting a number.
 
 **Time taken.** One working session on 2026-11-16, built by Claude Code with
 Marlon directing.

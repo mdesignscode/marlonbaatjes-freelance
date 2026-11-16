@@ -5,7 +5,8 @@ and a brief that turns into an email. It is a real site for a real person, not
 a concept demo. The job-application portfolio is a separate site at
 https://marlonbaatjes.vercel.app.
 
-Live at https://marlonbaatjes.is-a.dev once deployed (see CASE_STUDY.md).
+Live at https://marlonbaatjes-freelance.vercel.app. The `marlonbaatjes.is-a.dev`
+domain moves to it once Marlon detaches it from the old Vercel project.
 
 ## Run it
 
