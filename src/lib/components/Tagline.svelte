@@ -31,7 +31,7 @@
 
 <style>
 	:global(.armed) span {
-		opacity: 0.3;
+		opacity: 0.42;
 		transition: opacity 500ms var(--ease-settle);
 	}
 
