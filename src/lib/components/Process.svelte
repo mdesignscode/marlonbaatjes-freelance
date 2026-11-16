@@ -4,7 +4,7 @@
 
 	// Three screens from the projects below, cropped to three shapes down a diagonal.
 	const pick = (slug: string, index: number) => shotsOf(findProject(slug)!)[index];
-	const pictures = [pick('spots', 1), pick('trivia-mania', 1), pick('random-stuff', 3)];
+	const pictures = [pick('spots', 1), pick('trivia-mania', 2), pick('random-stuff', 5)];
 </script>
 
 <section id="process" class="frame py-24" aria-labelledby="process-title">

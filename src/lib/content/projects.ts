@@ -80,25 +80,25 @@ export const projects: Project[] = [
 		title: 'Trivia Mania',
 		fact: 'Web app with accounts',
 		summary:
-			'A trivia game with user accounts, a score board and personal stats, built to learn how a full web app fits together.',
+			'A trivia game with player accounts, a 30 second clock on every question, personal stats and a score board.',
 		story: [
-			'Players sign in, pick a difficulty and categories, and answer questions one at a time. The app remembers which questions each player has answered and ranks everyone on a score board.',
-			'I first built it in Next.js with questions stored in a JSON file, then moved it to SvelteKit with a real database. Sending each answer straight to the server removed a lot of browser code and made the pages lighter.'
+			'Players sign up, confirm their email with a code, pick a difficulty and categories, and answer timed questions one at a time. Every answer counts towards their stats by category and their place on the score board.',
+			'I first built it in Next.js with questions stored in a JSON file, then moved it to SvelteKit with a real database and later gave it a full redesign. Answers are checked on the server, which keeps cheating out and the pages light.'
 		],
 		built: [
-			'Sign in, with progress saved for each player',
-			'Hundreds of questions, filtered by difficulty and category',
-			'A score board and a personal stats page',
-			'Answers checked on the server, one question at a time'
+			'Sign up with email confirmation: codes expire, work once and lock after five wrong guesses',
+			'Over two thousand questions, filtered by difficulty and category',
+			'A 30 second clock on each question, and a way to stop and continue later',
+			'A stats page by category and difficulty, and a top ten score board'
 		],
-		stack: ['TypeScript', 'SvelteKit', 'Sequelize', 'Tailwind CSS'],
+		stack: ['TypeScript', 'SvelteKit', 'Sequelize', 'SQLite', 'Tailwind CSS', 'Vitest'],
 		live: { label: 'Open the live app', href: 'https://trivia-mania.onrender.com' },
 		source: 'https://github.com/mdesignscode/trivia_mania',
 		shots: [
-			'Trivia Mania home screen with difficulty and category choices',
-			'Trivia Mania question screen with four answers and a progress bar',
-			'Trivia Mania stats page showing one player’s answers by difficulty',
-			'Trivia Mania score board listing the top ten players'
+			'Trivia Mania question with a 27 second clock and four answers',
+			'Trivia Mania start screen showing 2206 questions ready, with the chosen difficulty and categories',
+			'Trivia Mania stats page with answered, correct and accuracy totals and a table by category',
+			'Trivia Mania score board with the signed in player marked in third place'
 		]
 	},
 	{
@@ -107,27 +107,29 @@ export const projects: Project[] = [
 		title: 'Random Stuff',
 		fact: 'Next.js site on Vercel',
 		summary:
-			'A collection of small tools in one site: recipes, poems, a game of rock paper scissors and more, each fed by a public API.',
+			'Nine small things to do when you are bored, styled as a street vending machine: punch a code into the keypad and an activity drops out.',
 		story: [
-			'Random Stuff pulls recipes, poems and other content from several public APIs and presents them in one tidy, responsive site.',
-			'The work here was in the plumbing: loading pages quickly, making them easy for search engines to read, keeping them usable by keyboard, and covering the main flows with browser tests.'
+			'Every activity sits in a coded slot: fruits, recipes, an art gallery, poems, a trivia quiz, card and word games, and jokes. Click a compartment, or type its code on the keypad, and it opens.',
+			'The whole site is a static Next.js export. All content is stored in the repository and turned into plain pages at build time, so it needs no database or keys, keeps working if a source API goes down, and can be installed like an app.'
 		],
 		built: [
-			'Recipe browser with filtering by tag',
-			'Poems, a rock paper scissors game and other small tools',
-			'Pages rendered on the server so they load fast and can be found by search',
+			'A working keypad: type a code such as A3, or press Surprise me',
+			'122 recipes with tag filters, 312 poems, 49 fruits and 48 public domain artworks',
+			'Rock paper scissors with 101 objects, Higher or Lower and a trivia quiz',
+			'Day and night modes, remembered between visits',
+			'Installable as an app, with every page built ahead of time',
 			'Browser tests for the main flows'
 		],
-		stack: ['TypeScript', 'Next.js', 'Prisma', 'Tailwind CSS', 'Cypress'],
+		stack: ['TypeScript', 'Next.js', 'React', 'GSAP', 'Tailwind CSS', 'Cypress'],
 		live: { label: 'Open the live site', href: 'https://random-stuff-one.vercel.app/' },
 		source: 'https://github.com/mdesignscode/passthetime/',
 		shots: [
-			'Random Stuff recipe page with tag filters and recipe cards',
-			'Random Stuff fruit page with a button for each fruit',
-			'Random Stuff fruit page with a panel of nutrition facts for a banana',
-			'Random Stuff poetry page with choices to find poems by author or title',
-			'Random Stuff poetry page listing poems by one author',
-			'Random Stuff rock paper scissors game with a picker of objects to play'
+			'Random Stuff home page: a vending machine of nine coded activities beside a keypad',
+			'Random Stuff recipe browser with tag filters and recipe photos',
+			'Random Stuff fruit page with a coloured label for each fruit',
+			'Random Stuff poetry page with choices by author or title and a list of poets',
+			'Random Stuff rock paper scissors game with a row of objects to play',
+			'Random Stuff art gallery of public domain works'
 		]
 	}
 ];

@@ -7,12 +7,10 @@
 		<h2 id="faq-title" class="heading-2 md:col-span-5" data-reveal>Questions people ask first</h2>
 		<div class="flex flex-col gap-0.5 md:col-span-6 md:col-start-7">
 			{#each faq as item, i (item.q)}
-				<details class="bg-surface" name="faq" data-reveal style="--i: {i}">
-					<summary
-						class="title-2 flex min-h-11 cursor-pointer items-center justify-between gap-4 p-4"
-					>
-						{item.q}
+				<details class="bg-surface" data-reveal style="--i: {i}">
+					<summary class="title-2 flex min-h-11 cursor-pointer items-center gap-4 p-4">
 						<span class="mark" aria-hidden="true"></span>
+						{item.q}
 					</summary>
 					<p class="body-3 max-w-[60ch] px-4 pb-6">{item.a}</p>
 				</details>
@@ -63,5 +61,24 @@
 
 	details[open] .mark {
 		transform: rotate(45deg);
+	}
+
+	/* Answers slide open where the browser can size to auto; elsewhere they open at once. */
+	details::details-content {
+		interpolate-size: allow-keywords;
+		overflow: clip;
+		contain: layout;
+	}
+
+	details:not([open])::details-content {
+		block-size: 0;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		details::details-content {
+			transition:
+				block-size 500ms var(--ease-settle),
+				content-visibility 500ms var(--ease-settle) allow-discrete;
+		}
 	}
 </style>

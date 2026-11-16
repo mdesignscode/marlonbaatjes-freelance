@@ -14,7 +14,13 @@
 		<p class="body-lg mt-8 max-w-[52ch]">{hero.sub}</p>
 	</div>
 
-	<ul class="strip frame" aria-label="Screens from my projects. Scroll sideways for more.">
+	<!-- The scroller takes focus so it can be scrolled by keyboard. -->
+	<ul
+		class="strip frame"
+		role="region"
+		aria-label="Screens from my projects. Scroll sideways for more."
+		tabindex="0"
+	>
 		{#each frames as frame, i (frame.picture.img.src)}
 			<li>
 				<a
@@ -70,7 +76,7 @@
 	}
 
 	/* The screen nearest the middle of the strip is lit; the rest sit back in the dark. */
-	@supports (animation-timeline: view()) {
+	@supports (animation-timeline: view()) and (animation-range: entry) {
 		@media (prefers-reduced-motion: no-preference) {
 			.strip li {
 				animation: lit linear both;
@@ -86,7 +92,7 @@
 	@keyframes lit {
 		0%,
 		100% {
-			opacity: 0.4;
+			opacity: 0.7;
 		}
 		40%,
 		60% {
