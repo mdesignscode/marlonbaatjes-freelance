@@ -1,0 +1,221 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist';
+
+/* One dark room, lit screens, one crimson action. Direction notes are in DIRECTION.md. */
+@theme {
+	--font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+
+	--color-bg: #131209;
+	--color-surface: #1f1f1f;
+	--color-raise: #272727;
+	--color-ink: #efefef;
+	--color-muted: #b4b4b4;
+	--color-accent: #b11226;
+	--color-accent-ink: #ffffff;
+	--color-paper: #efefef;
+	--color-paper-ink: #131209;
+
+	--ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+	html {
+		background: var(--color-bg);
+		color: var(--color-ink);
+		font-family: var(--font-sans);
+		scroll-behavior: smooth;
+		scroll-padding-top: 1.5rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
+	body {
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		text-rendering: optimizeLegibility;
+	}
+
+	h1,
+	h2,
+	h3 {
+		text-wrap: balance;
+	}
+
+	p,
+	li,
+	dd {
+		text-wrap: pretty;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-ink);
+		outline-offset: 3px;
+	}
+
+	::selection {
+		background: var(--color-accent);
+		color: var(--color-accent-ink);
+	}
+}
+
+/* Named text styles. Sizes are Tailwind scale steps; nothing is set off the scale. */
+@layer components {
+	.heading-1 {
+		font-size: var(--text-4xl);
+		line-height: var(--text-4xl--line-height);
+		font-weight: 500;
+		letter-spacing: -0.03em;
+	}
+	.heading-2 {
+		font-size: var(--text-3xl);
+		line-height: var(--text-3xl--line-height);
+		font-weight: 500;
+		letter-spacing: -0.03em;
+	}
+	.heading-4 {
+		font-size: var(--text-2xl);
+		line-height: var(--text-2xl--line-height);
+		font-weight: 500;
+		letter-spacing: -0.02em;
+	}
+	.heading-5 {
+		font-size: var(--text-xl);
+		line-height: var(--text-xl--line-height);
+		font-weight: 500;
+		letter-spacing: -0.02em;
+	}
+	.heading-3 {
+		font-size: var(--text-2xl);
+		line-height: var(--text-2xl--line-height);
+		font-weight: 500;
+		letter-spacing: -0.02em;
+	}
+	@media (width >= 48rem) {
+		.heading-1 {
+			font-size: var(--text-5xl);
+			line-height: 1;
+		}
+		.heading-3 {
+			font-size: var(--text-3xl);
+			line-height: var(--text-3xl--line-height);
+		}
+		.heading-4 {
+			font-size: var(--text-3xl);
+			line-height: var(--text-3xl--line-height);
+		}
+		.heading-5 {
+			font-size: var(--text-2xl);
+			line-height: var(--text-2xl--line-height);
+		}
+	}
+	@media (width >= 64rem) {
+		.heading-1 {
+			font-size: var(--text-6xl);
+		}
+		.heading-3 {
+			font-size: var(--text-4xl);
+			line-height: var(--text-4xl--line-height);
+		}
+		.heading-2 {
+			font-size: var(--text-5xl);
+			line-height: 1;
+		}
+	}
+
+	.title-2 {
+		font-size: var(--text-lg);
+		line-height: var(--text-lg--line-height);
+		font-weight: 500;
+	}
+	.title-3 {
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		font-weight: 500;
+	}
+	.body-3 {
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		font-weight: 400;
+	}
+	.body-lg {
+		font-size: var(--text-lg);
+		line-height: var(--text-lg--line-height);
+		font-weight: 400;
+	}
+	.caption-1 {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
+		font-weight: 500;
+	}
+	.caption-2 {
+		font-size: var(--text-sm);
+		line-height: var(--text-sm--line-height);
+		font-weight: 400;
+	}
+
+	/* The page frame: one pair of equal margins everywhere. */
+	.frame {
+		padding-inline: 1rem;
+	}
+	@media (width >= 48rem) {
+		.frame {
+			padding-inline: 2rem;
+		}
+	}
+
+	.btn {
+		display: inline-flex;
+		min-height: 2.75rem;
+		align-items: center;
+		justify-content: center;
+		padding: 0.5rem 0.75rem;
+		background: var(--color-accent);
+		color: var(--color-accent-ink);
+		font-size: var(--text-base);
+		line-height: var(--text-base--line-height);
+		font-weight: 600;
+		text-decoration: none;
+		transition:
+			transform 300ms var(--ease-settle),
+			opacity 300ms var(--ease-settle);
+	}
+	.btn:hover {
+		transform: translateY(-2px);
+	}
+	.btn:active {
+		transform: scale(0.98);
+	}
+	.btn-wide {
+		padding-inline: 1.5rem;
+	}
+
+	.link {
+		text-decoration: underline;
+		text-underline-offset: 0.2em;
+		text-decoration-thickness: 1px;
+		transition: opacity 300ms var(--ease-settle);
+	}
+	.link:hover {
+		opacity: 0.7;
+	}
+}
+
+/* Entrances. Content is visible without script; the .js class arms the hidden start state. */
+@media (prefers-reduced-motion: no-preference) {
+	.js [data-reveal] {
+		opacity: 0;
+		transform: translateY(2rem);
+		transition:
+			opacity 700ms var(--ease-settle),
+			transform 700ms var(--ease-settle);
+		transition-delay: calc(var(--i, 0) * 80ms);
+	}
+	.js [data-reveal].in {
+		opacity: 1;
+		transform: none;
+	}
+}
