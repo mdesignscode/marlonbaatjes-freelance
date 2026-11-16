@@ -15,6 +15,7 @@
 	</div>
 
 	<!-- The scroller takes focus so it can be scrolled by keyboard. -->
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<ul
 		class="strip frame"
 		role="region"
