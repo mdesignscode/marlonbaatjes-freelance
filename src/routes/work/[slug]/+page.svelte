@@ -7,6 +7,8 @@
 
 	const project = $derived(findProject(data.slug)!);
 	const shots = $derived(shotsOf(project));
+	const showcasePath = $derived(`/showcases/${project.slug}/brag`);
+	const galleryShots = $derived(project.showcase ? shots : shots.slice(1));
 	const whose = $derived(
 		project.kind === 'client'
 			? 'Built for a client and shown with their permission.'
@@ -43,17 +45,52 @@
 		</ul>
 	</div>
 
-	<div class="frame mt-10">
-		<div class="bg-cobalt p-[5%]">
-			<enhanced:img
-				class="w-full"
-				src={shots[0].picture}
-				alt={shots[0].alt}
-				sizes="83vw"
-				fetchpriority="high"
-			/>
+	{#if project.showcase}
+		<section class="frame mt-10" aria-labelledby="showcase-title">
+			<h2 id="showcase-title" class="heading-4 mb-4">Project showcase</h2>
+			<figure>
+				<div class="bg-cobalt p-2 sm:p-[2.5%]">
+					<video
+						class="block aspect-video w-full bg-bg"
+						width="1920"
+						height="1080"
+						controls
+						playsinline
+						preload="none"
+						poster="{showcasePath}.jpg"
+						aria-label="{project.title} showcase"
+						aria-describedby="showcase-description"
+					>
+						<source src="{showcasePath}.mp4" type="video/mp4" />
+						<track kind="captions" src="{showcasePath}.vtt" srclang="en" label="English" />
+						<a class="link" href="{showcasePath}.mp4">Open the showcase video</a>
+					</video>
+				</div>
+				<figcaption class="mt-4 grid gap-2 text-muted">
+					<p id="showcase-description" class="max-w-[70ch]">{project.showcase.description}</p>
+					<p class="caption-2">
+						Music <cite>Happy Beats / Business Moves, Vol. {project.showcase.musicVolume}</cite>
+						by <a class="link" href="https://ende.app/en">Sascha Ende</a>, edited (<a
+							class="link"
+							href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a
+						>).
+					</p>
+				</figcaption>
+			</figure>
+		</section>
+	{:else}
+		<div class="frame mt-10">
+			<div class="bg-cobalt p-[5%]">
+				<enhanced:img
+					class="w-full"
+					src={shots[0].picture}
+					alt={shots[0].alt}
+					sizes="83vw"
+					fetchpriority="high"
+				/>
+			</div>
 		</div>
-	</div>
+	{/if}
 
 	<div class="frame section-pad grid gap-x-8 gap-y-12 md:grid-cols-12">
 		<div class="md:col-span-6">
@@ -74,11 +111,11 @@
 		</div>
 	</div>
 
-	{#if shots.length > 1}
+	{#if galleryShots.length}
 		<section aria-labelledby="screens-title">
 			<h2 id="screens-title" class="frame heading-4">More screens</h2>
 			<ul class="frame mt-6 grid gap-4 md:grid-cols-2">
-				{#each shots.slice(1) as shot (shot.picture.img.src)}
+				{#each galleryShots as shot (shot.picture.img.src)}
 					<li class="bg-surface p-3 sm:p-5">
 						<enhanced:img
 							class="w-full"
