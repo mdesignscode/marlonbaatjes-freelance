@@ -5,47 +5,106 @@
 	let { id, title, intro, projects }: Props = $props();
 </script>
 
-<section {id} aria-labelledby="{id}-title" class="pt-24">
-	<div class="frame grid gap-6 pb-12 md:grid-cols-12">
-		<h2 id="{id}-title" class="heading-2 md:col-span-6" data-reveal>{title}</h2>
-		<p
-			class="body-lg max-w-[44ch] text-muted md:col-span-5 md:col-start-8"
-			data-reveal
-			style="--i: 1"
-		>
-			{intro}
-		</p>
-	</div>
+<section {id} aria-labelledby="{id}-title" class="bg-surface">
+	<div class="frame section-pad">
+		<div class="mb-9 grid items-end gap-5 md:mb-12 md:grid-cols-2">
+			<h2 id="{id}-title" class="heading-2">{title}</h2>
+			<p class="body-lg max-w-[42ch] text-muted md:justify-self-end">{intro}</p>
+		</div>
 
-	{#each projects as project (project.slug)}
-		{@const cover = shotsOf(project)[0]}
-		<article class="relative h-[82svh] overflow-hidden bg-bg md:h-svh">
-			<enhanced:img
-				class="absolute inset-0 size-full scale-125 object-cover opacity-50"
-				src={cover.picture}
-				alt={cover.alt}
-				sizes="(min-width: 768px) 125vw, 260vw"
-				loading="lazy"
-			/>
-			<a
-				class="row frame absolute inset-x-0 bottom-0 grid grid-cols-2 items-baseline gap-x-6 gap-y-1 bg-bg py-4 no-underline md:top-1/2 md:bottom-auto md:h-24 md:-translate-y-1/2 md:grid-cols-[10%_1fr_auto] md:items-center md:py-0"
-				href="/work/{project.slug}"
-			>
-				<h3 class="heading-5 col-span-2 uppercase md:order-2 md:col-span-1">{project.title}</h3>
-				<span class="caption-1 md:order-1">{kindLabel[project.kind]}</span>
-				<span class="caption-1 text-right md:order-3">{project.fact}</span>
-			</a>
-		</article>
-	{/each}
+		<div class="gallery">
+			{#each projects as project (project.slug)}
+				{@const cover = shotsOf(project)[0]}
+				<article class="project">
+					<a class="project-link" href="/work/{project.slug}">
+						<div class="project-image">
+							<enhanced:img
+								src={cover.picture}
+								alt={cover.alt}
+								sizes="(min-width: 64rem) 35vw, (min-width: 48rem) 45vw, 91vw"
+								loading="lazy"
+							/>
+						</div>
+						<div class="project-caption">
+							<div>
+								<p class="meta text-muted">{kindLabel[project.kind]}</p>
+								<h3 class="heading-3 mt-1">{project.title}</h3>
+								<p class="caption-2 mt-2">{project.fact}</p>
+							</div>
+							<span class="project-arrow" aria-hidden="true"><span class="arrow"></span></span>
+						</div>
+					</a>
+				</article>
+			{/each}
+		</div>
+	</div>
 </section>
 
 <style>
-	.row h3 {
-		transition: transform 500ms var(--ease-settle);
+	.gallery {
+		display: grid;
+		gap: 2rem clamp(1rem, 2.6vw, 2.5rem);
 	}
 
-	.row:hover h3,
-	.row:focus-visible h3 {
-		transform: translateX(0.75rem);
+	.project {
+		min-width: 0;
+	}
+	.project-link {
+		display: block;
+	}
+
+	.project-image {
+		display: grid;
+		place-items: center;
+		padding: 7.5% 8%;
+		background: var(--color-gallery-accent);
+	}
+
+	.project:nth-child(3n + 2) .project-image {
+		background: var(--color-raise);
+	}
+	.project:nth-child(3n + 3) .project-image {
+		background: var(--color-cobalt);
+	}
+	.project-image :global(img) {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+
+	.project-caption {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.8rem;
+		padding-block: 0.9rem 1.1rem;
+		border-bottom: 1px solid var(--color-line);
+	}
+
+	.project-arrow {
+		display: grid;
+		width: 2.65rem;
+		aspect-ratio: 1;
+		flex: none;
+		place-items: center;
+		border: 1px solid var(--color-ink);
+	}
+
+	.project-link:hover .project-arrow {
+		background: var(--color-ink);
+		color: var(--color-paper);
+	}
+
+	@media (width >= 48rem) {
+		.gallery {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (width >= 64rem) {
+		.gallery {
+			grid-template-columns: 1.15fr 0.93fr 0.93fr;
+			align-items: end;
+		}
 	}
 </style>

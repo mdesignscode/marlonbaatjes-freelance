@@ -36,3 +36,25 @@ is not settled. Measure it again on a quiet machine before quoting a number.
 
 **Time taken.** One working session on 2026-11-16, built by Claude Code with
 Marlon directing.
+
+## Graphic redesign, 2026-11-20
+
+The homepage now presents the offer and brief link next to two overlapping
+screenshots of Marlon’s own apps. The work gallery uses uncropped cover
+screens and identifies each project’s authorship. The project brief sits in
+its own cobalt section, with a preview beside the questions on wide screens
+and after the questions on phones. The case studies share the new typography,
+color palette, and screenshot treatment. The favicon and share image use the
+same identity.
+
+Verified in one working session. The production build, type check, lint,
+4 unit tests, and 9 browser tests passed. The homepage was also inspected in
+Chromium at 375 and 1280 pixels, with all images loaded and no horizontal
+overflow, page errors, or failed responses. The new layout was prototyped in
+code and reviewed in Chromium.
+
+Mobile Lighthouse on the local production build scored 92 performance,
+100 accessibility, 100 best practices, and 100 SEO using DevTools throttling.
+Two earlier simulated-throttling runs scored 84 and 68 for performance.
+These are local measurements. Recheck performance on the public deployment
+before quoting it as a production score.

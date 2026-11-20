@@ -7,7 +7,7 @@
 	<meta name="description" content="What this site does and does not collect." />
 </svelte:head>
 
-<article class="frame pt-24">
+<article class="frame section-pad">
 	<h1 class="heading-1">Privacy</h1>
 	<div class="body-lg mt-12 flex max-w-[60ch] flex-col gap-6">
 		<p>This site sets no cookies and runs no analytics or advertising scripts.</p>

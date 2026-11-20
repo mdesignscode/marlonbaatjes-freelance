@@ -1,22 +1,17 @@
 <script lang="ts">
 	import './layout.css';
-	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import favicon from '#lib/assets/favicon.svg';
 	import { hero, site } from '#lib/content/site.ts';
-	import { watchReveals } from '#lib/reveal.ts';
 	import type { LayoutProps } from './$types';
 
 	let { children }: LayoutProps = $props();
 
 	const links = [
-		{ label: 'Services', href: '/#brief' },
 		{ label: 'Work', href: '/#work' },
 		{ label: 'Process', href: '/#process' },
 		{ label: 'About', href: '/#about' }
 	];
-
-	afterNavigate(() => watchReveals());
 </script>
 
 <svelte:head>
@@ -33,20 +28,30 @@
 	>Skip to content</a
 >
 
-<header class="frame absolute inset-x-0 top-0 z-10 flex h-16 items-center justify-between gap-6">
-	<a
-		class="title-3 no-underline"
-		href="/"
-		aria-current={page.url.pathname === '/' ? 'page' : undefined}>{site.name}</a
+<header class="border-b border-line">
+	<div
+		class="frame flex min-h-[4.75rem] flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3"
 	>
-	<nav aria-label="Main" class="hidden md:block">
-		<ul class="flex gap-6">
-			{#each links as link (link.href)}
-				<li><a class="caption-1 link no-underline" href={link.href}>{link.label}</a></li>
-			{/each}
-		</ul>
-	</nav>
-	<a class="caption-1 link" href="/#brief">{hero.cta}</a>
+		<a
+			class="flex items-center gap-3 font-semibold"
+			href="/"
+			aria-current={page.url.pathname === '/' ? 'page' : undefined}
+		>
+			<span
+				class="display grid size-9 place-items-center bg-cobalt text-xl text-white"
+				aria-hidden="true">MB</span
+			>
+			{site.name}
+		</a>
+		<nav aria-label="Main" class="hidden sm:block">
+			<ul class="flex gap-7">
+				{#each links as link (link.href)}
+					<li><a class="caption-1 block py-2 hover:underline" href={link.href}>{link.label}</a></li>
+				{/each}
+			</ul>
+		</nav>
+		<a class="caption-1 link py-2 text-link" href="/#brief">{hero.cta}</a>
+	</div>
 </header>
 
 <main id="main">
@@ -54,7 +59,7 @@
 </main>
 
 <footer
-	class="frame caption-2 mt-24 grid gap-2 pb-6 text-muted md:grid-cols-[1fr_auto_1fr] md:items-baseline"
+	class="frame caption-2 grid gap-3 py-7 text-muted md:grid-cols-[1fr_auto_1fr] md:items-baseline"
 >
 	<p>Freelance developer, South Africa</p>
 	<ul class="flex flex-wrap gap-x-6 gap-y-2 text-ink">

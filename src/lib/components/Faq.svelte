@@ -2,17 +2,19 @@
 	import { faq } from '#lib/content/site.ts';
 </script>
 
-<section id="questions" class="frame py-24" aria-labelledby="faq-title">
+<section id="questions" class="frame section-pad" aria-labelledby="faq-title">
 	<div class="grid gap-x-8 gap-y-12 md:grid-cols-12">
-		<h2 id="faq-title" class="heading-2 md:col-span-5" data-reveal>Questions people ask first</h2>
-		<div class="flex flex-col gap-0.5 md:col-span-6 md:col-start-7">
-			{#each faq as item, i (item.q)}
-				<details class="bg-surface" data-reveal style="--i: {i}">
-					<summary class="title-2 flex min-h-11 cursor-pointer items-center gap-4 p-4">
-						<span class="mark" aria-hidden="true"></span>
+		<h2 id="faq-title" class="heading-2 md:col-span-5" data-reveal>Common questions</h2>
+		<div class="flex flex-col md:col-span-7 md:col-start-6">
+			{#each faq as item (item.q)}
+				<details class="rule">
+					<summary
+						class="title-2 flex min-h-14 cursor-pointer items-center justify-between gap-4 py-4"
+					>
 						{item.q}
+						<span class="mark" aria-hidden="true"></span>
 					</summary>
-					<p class="body-3 max-w-[60ch] px-4 pb-6">{item.a}</p>
+					<p class="max-w-[60ch] pb-6 text-muted">{item.a}</p>
 				</details>
 			{/each}
 		</div>
@@ -31,10 +33,6 @@
 
 	summary:hover {
 		opacity: 0.8;
-	}
-
-	details[open] {
-		background: var(--color-raise);
 	}
 
 	/* A plus that turns into a cross when the answer is open. */
