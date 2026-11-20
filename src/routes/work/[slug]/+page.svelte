@@ -23,18 +23,17 @@
 	<meta property="og:description" content={project.summary} />
 </svelte:head>
 
-<article class="pt-24">
-	<div class="frame grid gap-x-8 gap-y-6 md:grid-cols-12">
+<article>
+	<div class="frame pt-8">
+		<a class="link caption-1 text-cobalt" href="/#work">Back to selected work</a>
+	</div>
+	<div class="frame grid gap-x-8 gap-y-6 pt-9 md:grid-cols-12">
 		<div class="md:col-span-7">
-			<h1 class="heading-1" data-reveal>{project.title}</h1>
-			<p class="body-lg mt-6 max-w-[52ch]" data-reveal style="--i: 1">{project.summary}</p>
-			<p class="body-3 mt-3 text-muted" data-reveal style="--i: 2">{whose}</p>
+			<h1 class="heading-1">{project.title}</h1>
+			<p class="body-lg mt-6 max-w-[52ch]" style="--i: 1">{project.summary}</p>
+			<p class="mt-3 text-muted" style="--i: 2">{whose}</p>
 		</div>
-		<ul
-			class="flex flex-wrap items-end gap-6 md:col-span-4 md:col-start-9 md:justify-end"
-			data-reveal
-			style="--i: 3"
-		>
+		<ul class="flex flex-wrap items-end gap-6 md:col-span-4 md:col-start-9 md:justify-end">
 			{#if project.live}
 				<li><a class="btn btn-wide" href={project.live.href}>{project.live.label}</a></li>
 			{/if}
@@ -44,39 +43,43 @@
 		</ul>
 	</div>
 
-	<enhanced:img
-		class="mt-12 w-full"
-		src={shots[0].picture}
-		alt={shots[0].alt}
-		sizes="100vw"
-		fetchpriority="high"
-	/>
+	<div class="frame mt-10">
+		<div class="bg-cobalt p-[5%]">
+			<enhanced:img
+				class="w-full"
+				src={shots[0].picture}
+				alt={shots[0].alt}
+				sizes="83vw"
+				fetchpriority="high"
+			/>
+		</div>
+	</div>
 
-	<div class="frame grid gap-x-8 gap-y-12 py-24 md:grid-cols-12">
+	<div class="frame section-pad grid gap-x-8 gap-y-12 md:grid-cols-12">
 		<div class="md:col-span-6">
-			<h2 class="heading-4" data-reveal>What it is</h2>
+			<h2 class="heading-4">What it is</h2>
 			{#each project.story as paragraph, i (i)}
-				<p class="body-lg mt-6 max-w-[60ch]" data-reveal>{paragraph}</p>
+				<p class="body-lg mt-6 max-w-[60ch]">{paragraph}</p>
 			{/each}
 		</div>
 		<div class="md:col-span-5 md:col-start-8">
-			<h2 class="heading-4" data-reveal>What it does</h2>
-			<ul class="mt-6 flex flex-col gap-0.5">
-				{#each project.built as item, i (i)}
-					<li class="body-3 bg-surface p-4" data-reveal style="--i: {i}">{item}</li>
+			<h2 class="heading-4">What it does</h2>
+			<ul class="mt-6 flex flex-col gap-0">
+				{#each project.built as item (item)}
+					<li class="rule py-3">{item}</li>
 				{/each}
 			</ul>
-			<h2 class="heading-4 mt-12" data-reveal>Built with</h2>
-			<p class="body-lg mt-6" data-reveal>{project.stack.join(', ')}</p>
+			<h2 class="heading-4 mt-12">Built with</h2>
+			<p class="body-lg mt-6">{project.stack.join(', ')}</p>
 		</div>
 	</div>
 
 	{#if shots.length > 1}
 		<section aria-labelledby="screens-title">
-			<h2 id="screens-title" class="frame heading-4" data-reveal>More screens</h2>
-			<ul class="frame mt-6 grid gap-2 md:grid-cols-2">
+			<h2 id="screens-title" class="frame heading-4">More screens</h2>
+			<ul class="frame mt-6 grid gap-4 md:grid-cols-2">
 				{#each shots.slice(1) as shot (shot.picture.img.src)}
-					<li data-reveal>
+					<li class="bg-surface p-3 sm:p-5">
 						<enhanced:img
 							class="w-full"
 							src={shot.picture}
@@ -91,7 +94,7 @@
 	{/if}
 
 	<div
-		class="frame flex flex-col items-start gap-6 pt-24 md:flex-row md:items-center md:justify-between"
+		class="frame section-pad flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between"
 	>
 		<p class="heading-4 max-w-[24ch]">Need something like this built for your business?</p>
 		<div class="flex flex-wrap items-center gap-6">

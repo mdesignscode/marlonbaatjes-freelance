@@ -1,20 +1,30 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/geist';
 
-/* One dark room, lit screens, one crimson action. Direction notes are in DIRECTION.md. */
+@font-face {
+	font-family: 'Big Shoulders Display';
+	src: url('../lib/assets/fonts/big-shoulders-display-latin-800-normal.woff2') format('woff2');
+	font-style: normal;
+	font-weight: 800;
+	font-display: swap;
+}
+
 @theme {
 	--font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
-
-	--color-bg: #131209;
-	--color-surface: #1f1f1f;
-	--color-raise: #272727;
-	--color-ink: #efefef;
-	--color-muted: #b4b4b4;
-	--color-accent: #b11226;
-	--color-accent-ink: #ffffff;
-	--color-paper: #efefef;
-	--color-paper-ink: #131209;
-
+	--font-display: 'Big Shoulders Display', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+	--color-bg: #f7f5ec;
+	--color-surface: #eeebdf;
+	--color-raise: #e3e6fb;
+	--color-ink: #181b33;
+	--color-muted: #53556a;
+	--color-line: #cbc7ba;
+	--color-cobalt: #273abc;
+	--color-blue-line: #8593ff;
+	--color-blue-shadow: #111c7155;
+	--color-citron: #e6f88b;
+	--color-white: #fff;
+	--color-paper: #fffdf6;
+	--color-bright-muted: #e1e5ff;
 	--ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -23,171 +33,122 @@
 		background: var(--color-bg);
 		color: var(--color-ink);
 		font-family: var(--font-sans);
-		scroll-behavior: smooth;
 		scroll-padding-top: 1.5rem;
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		html {
-			scroll-behavior: auto;
-		}
-	}
-
 	body {
-		font-size: var(--text-base);
-		line-height: var(--text-base--line-height);
-		text-rendering: optimizeLegibility;
-	}
-
-	h1,
-	h2,
-	h3 {
-		text-wrap: balance;
-	}
-
-	p,
-	li,
-	dd {
-		text-wrap: pretty;
+		line-height: 1.55;
 	}
 
 	:focus-visible {
-		outline: 2px solid var(--color-ink);
-		outline-offset: 3px;
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
 	}
 
 	::selection {
-		background: var(--color-accent);
-		color: var(--color-accent-ink);
+		background: var(--color-citron);
+		color: var(--color-ink);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
 	}
 }
 
-/* Named text styles. Sizes are Tailwind scale steps; nothing is set off the scale. */
 @layer components {
+	.display,
+	.heading-1,
+	.heading-2,
+	.heading-3 {
+		font-family: var(--font-display);
+		font-weight: 800;
+		letter-spacing: -0.025em;
+		line-height: 0.97;
+	}
+
 	.heading-1 {
-		font-size: var(--text-4xl);
-		line-height: var(--text-4xl--line-height);
-		font-weight: 500;
-		letter-spacing: -0.03em;
+		font-size: clamp(3.2rem, 2.4rem + 4.4vw, 7rem);
 	}
 	.heading-2 {
-		font-size: var(--text-3xl);
-		line-height: var(--text-3xl--line-height);
-		font-weight: 500;
-		letter-spacing: -0.03em;
-	}
-	.heading-4 {
-		font-size: var(--text-2xl);
-		line-height: var(--text-2xl--line-height);
-		font-weight: 500;
-		letter-spacing: -0.02em;
-	}
-	.heading-5 {
-		font-size: var(--text-xl);
-		line-height: var(--text-xl--line-height);
-		font-weight: 500;
-		letter-spacing: -0.02em;
+		font-size: clamp(2.85rem, 2rem + 3.1vw, 5.6rem);
 	}
 	.heading-3 {
-		font-size: var(--text-2xl);
-		line-height: var(--text-2xl--line-height);
-		font-weight: 500;
-		letter-spacing: -0.02em;
+		font-size: clamp(2.3rem, 1.7rem + 2.1vw, 4.3rem);
 	}
-	@media (width >= 48rem) {
-		.heading-1 {
-			font-size: var(--text-5xl);
-			line-height: 1;
-		}
-		.heading-3 {
-			font-size: var(--text-3xl);
-			line-height: var(--text-3xl--line-height);
-		}
-		.heading-4 {
-			font-size: var(--text-3xl);
-			line-height: var(--text-3xl--line-height);
-		}
-		.heading-5 {
-			font-size: var(--text-2xl);
-			line-height: var(--text-2xl--line-height);
-		}
+	.heading-4 {
+		font-size: clamp(1.45rem, 1.15rem + 0.9vw, 2rem);
+		line-height: 1.13;
+		font-weight: 620;
+		letter-spacing: -0.035em;
 	}
-	@media (width >= 64rem) {
-		.heading-1 {
-			font-size: var(--text-6xl);
-		}
-		.heading-3 {
-			font-size: var(--text-4xl);
-			line-height: var(--text-4xl--line-height);
-		}
-		.heading-2 {
-			font-size: var(--text-5xl);
-			line-height: 1;
-		}
-	}
-
 	.title-2 {
-		font-size: var(--text-lg);
-		line-height: var(--text-lg--line-height);
-		font-weight: 500;
+		font-size: 1.0625rem;
+		font-weight: 620;
+		line-height: 1.3;
 	}
 	.title-3 {
-		font-size: var(--text-base);
-		line-height: var(--text-base--line-height);
-		font-weight: 500;
-	}
-	.body-3 {
-		font-size: var(--text-base);
-		line-height: var(--text-base--line-height);
-		font-weight: 400;
+		font-weight: 610;
 	}
 	.body-lg {
-		font-size: var(--text-lg);
-		line-height: var(--text-lg--line-height);
-		font-weight: 400;
+		font-size: clamp(1rem, 0.96rem + 0.32vw, 1.2rem);
+		line-height: 1.55;
 	}
 	.caption-1 {
-		font-size: var(--text-sm);
-		line-height: var(--text-sm--line-height);
-		font-weight: 500;
+		font-size: 0.875rem;
+		font-weight: 600;
 	}
 	.caption-2 {
-		font-size: var(--text-sm);
-		line-height: var(--text-sm--line-height);
-		font-weight: 400;
+		font-size: 0.875rem;
+	}
+	.meta {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.075em;
+		text-transform: uppercase;
 	}
 
-	/* The page frame: one pair of equal margins everywhere. */
 	.frame {
-		padding-inline: 1rem;
+		width: min(100%, 90rem);
+		margin-inline: auto;
+		padding-inline: clamp(1.25rem, 4.8vw, 4.75rem);
 	}
-	@media (width >= 48rem) {
-		.frame {
-			padding-inline: 2rem;
-		}
+
+	.section-pad {
+		padding-block: clamp(3.75rem, 7vw, 7.5rem);
+	}
+	.rule {
+		border-block-start: 1px solid var(--color-line);
 	}
 
 	.btn {
 		display: inline-flex;
-		min-height: 2.75rem;
+		min-height: 3.25rem;
 		align-items: center;
 		justify-content: center;
-		padding: 0.5rem 0.75rem;
-		background: var(--color-accent);
-		color: var(--color-accent-ink);
-		font-size: var(--text-base);
-		line-height: var(--text-base--line-height);
-		font-weight: 600;
+		gap: 1rem;
+		padding: 0.65rem 1.1rem;
+		background: var(--color-cobalt);
+		color: var(--color-white);
+		font-weight: 640;
 		text-decoration: none;
-		transition:
-			transform 300ms var(--ease-settle),
-			opacity 300ms var(--ease-settle);
+		outline-color: var(--color-cobalt);
 	}
+
 	.btn:hover {
-		transform: translateY(-2px);
+		background: var(--color-ink);
 	}
-	.btn:active {
-		transform: scale(0.98);
+	.btn-bright,
+	.btn-bright:hover {
+		color: var(--color-ink);
+		outline-color: var(--color-citron);
+	}
+	.btn-bright {
+		background: var(--color-citron);
+	}
+	.btn-bright:hover {
+		background: var(--color-paper);
 	}
 	.btn-wide {
 		padding-inline: 1.5rem;
@@ -195,27 +156,41 @@
 
 	.link {
 		text-decoration: underline;
-		text-underline-offset: 0.2em;
+		text-underline-offset: 0.22em;
 		text-decoration-thickness: 1px;
-		transition: opacity 300ms var(--ease-settle);
 	}
-	.link:hover {
-		opacity: 0.7;
-	}
-}
 
-/* Entrances. Content is visible without script; the .js class arms the hidden start state. */
-@media (prefers-reduced-motion: no-preference) {
-	.js [data-reveal] {
-		opacity: 0;
-		transform: translateY(2rem);
-		transition:
-			opacity 700ms var(--ease-settle),
-			transform 700ms var(--ease-settle);
-		transition-delay: calc(var(--i, 0) * 80ms);
+	.link:hover {
+		text-decoration-thickness: 2px;
 	}
-	.js [data-reveal].in {
-		opacity: 1;
-		transform: none;
+
+	.arrow {
+		position: relative;
+		display: inline-block;
+		flex: none;
+		width: 1rem;
+		height: 1rem;
+	}
+
+	.arrow::before {
+		content: '';
+		position: absolute;
+		inset: calc(50% - 1px) 0 auto;
+		border-top: 2px solid;
+	}
+
+	.arrow::after {
+		content: '';
+		position: absolute;
+		width: 0.6rem;
+		height: 0.6rem;
+		inset: 50% 1px auto auto;
+		transform: translateY(-50%) rotate(45deg);
+		border-top: 2px solid;
+		border-right: 2px solid;
+	}
+
+	.arrow-down {
+		transform: rotate(90deg);
 	}
 }

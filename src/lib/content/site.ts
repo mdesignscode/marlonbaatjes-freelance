@@ -12,10 +12,9 @@ export const site = {
 };
 
 export const hero = {
-	heading: 'Websites and tools for small businesses',
-	sub: 'I’m Marlon Baatjes, a full stack developer in South Africa. I build websites, web apps and Python automation, explain them in plain words and hand them over ready to run.',
-	cta: 'Start a project brief',
-	proof: 'Every project here is live or open source, so you can try it and read the code.'
+	heading: ['Websites and', 'tools for small', 'businesses'],
+	sub: 'I’m Marlon Baatjes, a full-stack developer in South Africa. I build websites, web apps and Python automation, then show you how to run what I deliver.',
+	cta: 'Start a project brief'
 };
 
 export const tagline =

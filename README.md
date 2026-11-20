@@ -47,5 +47,6 @@ There are no environment variables.
 
 ## Design
 
-`DIRECTION.md` holds the visual direction and the rules it follows. Tokens are
-in `src/routes/layout.css`.
+`DIRECTION.md` records the visual direction. `DESIGN.md` describes how it is
+applied, and the live tokens are in `src/routes/layout.css`. Desktop and
+mobile captures are in `shots/`.

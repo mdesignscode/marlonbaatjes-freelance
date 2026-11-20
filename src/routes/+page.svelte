@@ -5,7 +5,6 @@
 	import Faq from '#lib/components/Faq.svelte';
 	import Hero from '#lib/components/Hero.svelte';
 	import Process from '#lib/components/Process.svelte';
-	import Tagline from '#lib/components/Tagline.svelte';
 	import Work from '#lib/components/Work.svelte';
 	import { clientProjects, otherProjects } from '#lib/content/projects.ts';
 	import { site } from '#lib/content/site.ts';
@@ -19,8 +18,6 @@
 </svelte:head>
 
 <Hero />
-<Tagline />
-<Brief />
 
 <!-- Client work appears only once a real client project exists in projects.ts. -->
 {#if clientProjects.length}
@@ -34,12 +31,13 @@
 
 <Work
 	id="work"
-	title="Built on my own time"
-	intro="These are my own projects, not client work. Each one is live or open source, so you can try it and read the code before you hire me."
+	title="Selected work"
+	intro="I built these projects on my own time. Each one is live or open source, so you can explore the work before you hire me."
 	projects={otherProjects}
 />
 
 <Process />
 <About />
 <Faq />
+<Brief />
 <Contact />

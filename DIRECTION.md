@@ -1,46 +1,15 @@
 # Direction
 
-Set on 2026-11-16 with the taste skill (seed 508084292), the landing page
-skill and the modern web guidance skill, as `DESIGN_FLOW.md` step 1 and 2 ask.
+## Direction contract
 
-**Audience.** Small business owners, not developers.
+**Thesis.** The screens Marlon has actually built are the artwork. Treat two of them as overlapping prints on the homepage and let visitors inspect their source projects in the work gallery.
 
-**Tone.** Calm, plain, confident without boasting.
+**Visual system.** Warm paper, cobalt ink, and citron for actions on cobalt. Condensed display type provides the impact of a printed poster. Geist handles navigation, copy, and controls.
 
-**Idea.** A dark room in which the lit things are the screens Marlon has
-built. The first screen is a strip of them; the work section fills the screen
-with one at a time. The job site is teal ink on paper, so this is its opposite.
+**Reading order.** Offer and brief link, selected work, how work is done, about, questions, and the project brief with its live email preview.
 
-**The live thing.** The brief. Four questions rewrite an email on the left as
-they are answered, and the button opens it in the visitor's email app.
+**First viewport.** Large three-line offer on the left, two overlapping screenshots on a cobalt panel on the right. Mobile puts the offer and action ahead of the artwork.
 
-**Type.** Geist, one family, weights 400 to 600. Sizes are Tailwind scale
-steps, named in `layout.css` (`heading-1`, `body-lg`, `caption-1` and so on).
+**Form.** Code-led portfolio redesign. seed: none (unavailable)
 
-**Colour.** Ground `#131209`, surfaces `#1f1f1f` and `#272727`, ink `#efefef`,
-one crimson `#b11226` used only for the action. Surfaces differ by tone, with
-no lines, shadows or gradients.
-
-**Imagery.** Marlon's own project screenshots and his illustrated portrait.
-No stock pictures.
-
-**Motion.** Parts of each section rise 32px and fade in once. The strip
-brightens the screen nearest the middle. The promise lights up word by word.
-All of it is off under reduced motion, and nothing is hidden without script.
-
-## Where the two skills disagreed, and what was chosen
-
-- Typeface: taste dealt Clash Grotesk; the landing page skill allows only
-  Geist, Manrope or Poppins. Geist was used.
-- Navigation: the landing page skill asks for a floating blurred bar; taste
-  bans glass. A plain bar was used.
-- Hero heading: the landing page skill asks for gradient text; taste bans
-  gradients. Flat ink was used.
-- Heading weight is 500, not semibold, because heavy type reads badly on a
-  dark ground.
-
-## Not done
-
-- No Figma prototype (`DESIGN_FLOW.md` step 3). Marlon did not ask to approve
-  the look first.
-- No `/impeccable` critique yet (step 6). Left for the review task.
+Unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
