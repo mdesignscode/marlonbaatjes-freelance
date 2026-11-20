@@ -21,3 +21,16 @@ the app, signed in as one of its seeded sample players. The player names on
 them are sample data, not real people.
 
 The arrow is drawn in CSS. `static/share.png` and the images in `shots/` are browser captures of the portfolio and reuse the credited project screenshots.
+
+## Project showcase films
+
+The films use Marlon’s project interface captures described above. The Spots
+search is a fictional example. Trivia Mania’s stats crop omits the sample
+player’s name. Random Stuff also uses the day and night captures from its
+project repository.
+
+Music: _Happy Beats / Business Moves_, Vol. 9 (Spots), Vol. 1 (Trivia Mania)
+and Vol. 12 (Random Stuff), by [Sascha Ende](https://ende.app/en) under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The tracks were
+trimmed and mixed with interface sound effects from [Kenney](https://kenney.nl/)
+(CC0).

@@ -21,6 +21,7 @@ export type Project = {
 	stack: string[];
 	live?: { label: string; href: string };
 	source?: string;
+	showcase?: { description: string; musicVolume: number };
 	/** Alt text for each screenshot, in file order (1.png, 2.png ...). */
 	shots: string[];
 };
@@ -66,6 +67,11 @@ export const projects: Project[] = [
 		stack: ['Python', 'Typer', 'Flask', 'yt-dlp', 'pytest', 'React', 'esbuild'],
 		live: { label: 'See it on PyPI', href: 'https://pypi.org/project/spots-cli/' },
 		source: 'https://github.com/mdesignscode/spots_flask',
+		showcase: {
+			description:
+				'The showcase installs Spots from PyPI, follows a sample search, and compares video resolutions and file sizes.',
+			musicVolume: 9
+		},
 		shots: [
 			'Spots web screen showing one song with a table of video resolutions and file sizes',
 			'Spots web screen listing an album with a checkbox beside each track',
@@ -94,6 +100,11 @@ export const projects: Project[] = [
 		stack: ['TypeScript', 'SvelteKit', 'Sequelize', 'SQLite', 'Tailwind CSS', 'Vitest'],
 		live: { label: 'Open the live app', href: 'https://trivia-mania.onrender.com' },
 		source: 'https://github.com/mdesignscode/trivia_mania',
+		showcase: {
+			description:
+				'The showcase picks a difficulty, answers a geography question against the clock, and opens the stats by category.',
+			musicVolume: 1
+		},
 		shots: [
 			'Trivia Mania question with a 27 second clock and four answers',
 			'Trivia Mania start screen showing 2206 questions ready, with the chosen difficulty and categories',
@@ -123,6 +134,11 @@ export const projects: Project[] = [
 		stack: ['TypeScript', 'Next.js', 'React', 'GSAP', 'Tailwind CSS', 'Cypress'],
 		live: { label: 'Open the live site', href: 'https://random-stuff-one.vercel.app/' },
 		source: 'https://github.com/mdesignscode/passthetime/',
+		showcase: {
+			description:
+				'The showcase enters A3 on the vending machine keypad, opens the art gallery, and returns to the machine in night mode.',
+			musicVolume: 12
+		},
 		shots: [
 			'Random Stuff home page: a vending machine of nine coded activities beside a keypad',
 			'Random Stuff recipe browser with tag filters and recipe photos',
