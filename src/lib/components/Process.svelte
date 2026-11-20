@@ -10,7 +10,7 @@
 	<ol class="mt-10 grid gap-x-8 md:mt-16 md:grid-cols-3">
 		{#each steps as step, index (step.lead)}
 			<li class="rule grid grid-cols-[auto_1fr] items-start gap-4 py-6">
-				<span class="heading-3 text-cobalt" aria-hidden="true">{index + 1}</span>
+				<span class="heading-3 text-link" aria-hidden="true">{index + 1}</span>
 				<p class="max-w-[39ch]"><strong class="font-semibold">{step.lead}</strong> {step.text}</p>
 			</li>
 		{/each}

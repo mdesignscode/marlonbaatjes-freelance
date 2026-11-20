@@ -57,7 +57,7 @@
 		display: grid;
 		place-items: center;
 		padding: 7.5% 8%;
-		background: var(--color-citron);
+		background: var(--color-gallery-accent);
 	}
 
 	.project:nth-child(3n + 2) .project-image {

@@ -63,7 +63,7 @@
 		aspect-ratio: 1.18;
 		background: var(--color-cobalt);
 		color: var(--color-white);
-		outline-color: var(--color-cobalt);
+		outline-color: var(--color-link);
 	}
 
 	.artwork::before {
@@ -110,7 +110,7 @@
 		font-size: 0.8125rem;
 		font-weight: 650;
 		background: var(--color-citron);
-		color: var(--color-ink);
+		color: var(--color-on-citron);
 	}
 
 	@media (hover: hover) and (prefers-reduced-motion: no-preference) {

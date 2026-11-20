@@ -28,7 +28,7 @@ Two real screenshots form the hero artwork. Use the same square-edged mounts and
 
 ## Colors
 
-Use warm paper and navy ink for reading. Cobalt marks the hero artwork, project brief, and primary links and actions. Citron highlights an action against cobalt. Periwinkle sets off the about section. The live tokens are in `src/routes/layout.css`.
+Use warm paper and navy ink for reading in light mode. Dark mode follows the system preference and uses blue-black paper, warm off-white text, a deeper cobalt, and a sage field behind the Spots cover. Citron is reserved for small actions and selection in dark mode. The live tokens for both themes are in `src/routes/layout.css`.
 
 ## Typography
 

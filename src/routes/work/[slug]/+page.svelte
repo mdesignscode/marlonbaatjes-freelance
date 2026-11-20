@@ -25,7 +25,7 @@
 
 <article>
 	<div class="frame pt-8">
-		<a class="link caption-1 text-cobalt" href="/#work">Back to selected work</a>
+		<a class="link caption-1 text-link" href="/#work">Back to selected work</a>
 	</div>
 	<div class="frame grid gap-x-8 gap-y-6 pt-9 md:grid-cols-12">
 		<div class="md:col-span-7">

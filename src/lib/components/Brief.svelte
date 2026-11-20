@@ -153,4 +153,10 @@
 		font: inherit;
 		outline-color: var(--color-citron);
 	}
+
+	@media (prefers-color-scheme: dark) {
+		.field {
+			box-shadow: inset 0 0 0 1px var(--color-blue-line);
+		}
+	}
 </style>

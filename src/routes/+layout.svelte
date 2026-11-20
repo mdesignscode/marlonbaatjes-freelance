@@ -50,7 +50,7 @@
 				{/each}
 			</ul>
 		</nav>
-		<a class="caption-1 link py-2 text-cobalt" href="/#brief">{hero.cta}</a>
+		<a class="caption-1 link py-2 text-link" href="/#brief">{hero.cta}</a>
 	</div>
 </header>
 
