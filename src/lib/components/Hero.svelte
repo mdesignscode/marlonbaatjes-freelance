@@ -119,11 +119,11 @@
 		}
 
 		.artwork:hover .print-main {
-			transform: translateY(-3%) rotate(4deg);
+			transform: translateY(9%) rotate(-4deg);
 		}
 
 		.artwork:hover .print-first {
-			transform: translateY(-3%) rotate(-10deg);
+			transform: translateY(-9%) rotate(2deg);
 		}
 	}
 
